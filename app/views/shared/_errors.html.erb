@@ -1,0 +1,21 @@
+<% if obj.errors.any? %> <!--Prej je bil namesto obj. @Article ampak smo spremenili      -->
+  <div class="row">  <!--      v obj da lahko to uporablja tudi kaj drugega npr. user ne samo article -->
+    <div class="col-xs-8 col-xs-offset-2"><!--To zgorja moramo tudi navesi v _form da se ve kaj obj sploh pomeni-->
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel.title">
+            <%= pluralize(obj.errors.count, "error") %>
+            prohibited this article from being saved
+          </h2>
+          <div class="panel-body">
+            <ul>
+              <% obj.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
